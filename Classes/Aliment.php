@@ -1,5 +1,5 @@
 <?php
-//ajouter setters 
+ 
 namespace App\Classes;
 
 class Aliment {
@@ -21,19 +21,39 @@ class Aliment {
         return $this->id;
     }
 
+    public function setId($id) {
+        $this->id = $id;
+    }
+
     public function getName() {
         return $this->name;
+    }
+
+    public function setName($name) {
+        $this->name = $name;
     }
 
     public function getPricePerUnitHT() {
         return $this->pricePerUnitHT;
     }
 
+    public function setPricePerUnitHT($pricePerUnitHT) {
+        $this->pricePerUnitHT = $pricePerUnitHT;
+    }
+
     public function getPricePerKiloHT() {
         return $this->pricePerKiloHT;
     }
 
+    public function setPricePerKiloHT($pricePerKiloHT) {
+        $this->pricePerKiloHT = $pricePerKiloHT;
+    }
+
     public function getTva() {
         return $this->tva;
+    }
+
+    public function setTva($tva) {
+        $this->tva = $tva;
     }
 }

@@ -1,9 +1,13 @@
 <?php
-//ajouter setters + tableaux choix roles??
+//ajouter tableaux choix roles??
 
 namespace App\Classes;
 
 class User {
+    const ROLE_COOK = 'cook';
+    const ROLE_MANAGEMENT = 'management';
+    const ROLE_STOCK = 'stock';
+
     private $id;
     private $name;
     private $surname;
@@ -65,6 +69,12 @@ class User {
     }
 
     public function setRole($role) {
+        $validRoles = [self::ROLE_COOK, self::ROLE_MANAGEMENT, self::ROLE_STOCK];
+
+        if (!in_array($role, $validRoles)) {
+            throw new \InvalidArgumentException("Rôle invalide : $role");
+        }
+
         $this->role = $role;
     }
 }
