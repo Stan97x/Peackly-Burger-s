@@ -1,0 +1,276 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "Rubik", serif;
+    
+}
+
+body
+{
+    background-color: black;
+    padding-top: 80px
+}
+.section-title
+{
+    font-family: "Rubik", serif;
+    text-align: center;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Rubik", serif;
+}
+a
+{
+    color:  #c4b80f   
+}
+/*--------------------------------------------------------------
+NavBar
+--------------------------------------------------------------*/
+.logo
+{   
+    display: flex;
+    width: 25%;
+}
+a
+{
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    justify-content: space-between;
+}
+
+a:hover
+{
+    color: white;
+}
+
+header
+{ position: fixed;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 100%;
+    z-index: 99;
+    background:rgba(12, 11, 9, 0.6);
+}
+
+.navbar
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    text-align: center;
+    padding: 10;
+}
+
+.navbar .logo a
+{
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.navbar .links
+{
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+    padding: 10px 0 10px 20px;
+    margin-left: auto;
+    margin-right: 2rem;
+    gap: 1rem;
+
+}
+
+.navbar .burger-menu-button
+{
+    color: white;
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.burger-menu
+{
+    display: none;
+    height: 0;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    width: 200px;
+    background: rgba(0, 0,0,0.2);
+    backdrop-filter: blur(15px);
+    overflow: hidden;   
+    border-radius: 10px;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.burger-menu.open
+{
+    display: block;
+    height: 320px;
+
+}
+
+.burger-menu li
+{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media(max-width:1000px) 
+{
+    .logo
+    {
+        width: 30%;
+    }
+    header
+    
+    {
+        background-color: black;  
+    }
+     
+    .navbar .links
+    {
+        display: none;
+    }
+
+    .navbar .burger-menu-button
+    {
+        display: block;
+    }
+
+    .navbar .burger-menu
+    {
+        display: block;
+    }
+/*--------------------------------------------------------------
+Banner
+--------------------------------------------------------------*/
+}
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+@media (max-width: 768px) {
+    .links {
+        display: none;
+    }
+    .video-background
+    {
+        width: 120%;
+    }
+    .burger-menu {
+        display: block;
+    }
+}
+.button-container {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #c4b80f;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    background-color: #e5c400;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 768px) {
+    .cta-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    .button-container {
+        bottom: 30px;
+    }
+}
+/*--------------------------------------------------------------
+# Acuueil Borne
+--------------------------------------------------------------*/
+.menu-cat {
+    padding: 2rem 0;
+}
+.menu-cat .box-containeur {
+    margin-top: 600px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 0.5rem; 
+    align-items: flex-start;
+    justify-items: center; 
+}
+
+.menu-cat .box-containeur .box {
+    border: 0.2rem solid black;
+    padding: 0.5rem; 
+    text-align: center;
+    color: #c4b80f;
+    max-width: 95%; 
+}
+
+
+.menu-cat .box-containeur .box img
+{
+    width: 100%;
+    height: 12rem;
+    object-fit:cover;
+
+}
+.menu-cat .box-containeur .box h3
+{
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    color: #c4b80f;
+    text-transform: capitalize;
+}
+.menu-cat .box-containeur .box:hover
+{
+    background-color:#0F0E0E;
+
+}
+
+.menu-cat .box-containeur .box:hover h3
+{
+  color: white;  
+}
+/*--------------------------------------------------------------
+# Responsive
+--------------------------------------------------------------*/
