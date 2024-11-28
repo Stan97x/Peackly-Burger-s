@@ -15,6 +15,7 @@ class Meal extends AbstractItem {
     private $type;
     private $format;
     private $sortOrder;
+    private $aliments = [];
 
     public function __construct($id, $type, $name, $format, $sortOrder, $priceHT, $tva) {
         parent::__construct($id, $name, $priceHT, $tva);
