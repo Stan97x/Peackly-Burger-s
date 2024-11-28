@@ -14,15 +14,17 @@ class Command {
 
     private $id;
     private $status;
-    private $datetime;
-    private $preparationTime;
+    private $datetimeCommand;
+    private $datetimeBegin;
+    private $datetimeEnd;
     private $userId;
 
-    public function __construct($id, $status, $datetime, $preparationTime, $priceHT, $tva, $priceTTC, $userId) {
+    public function __construct($id, $status, $datetimeCommand, $datetimeBegin, $datetimeEnd, $priceHT, $tva, $priceTTC, $userId) {
         $this->id = $id;
         $this->status = $status;
-        $this->datetime = $datetime;
-        $this->preparationTime = $preparationTime;
+        $this->datetimeCommand = $datetimeCommand;
+        $this->datetimeBegin = $datetimeBegin;
+        $this->datetimeEnd = $datetimeEnd;
         $this->priceHT = $priceHT;
         $this->tva = $tva;
         $this->priceTTC = $priceTTC;
@@ -53,21 +55,28 @@ class Command {
         $this->status = $status;
     }
 
-    public function getDatetime() {
-        return $this->datetime;
+    public function getDatetimeCommand() {
+        return $this->datetimeCommand;
     }
 
-    public function setDatetime($datetime) {
-        $this->datetime = $datetime;
+    public function setDatetimeCommand($datetimeCommand) {
+        $this->datetimeCommand = $datetimeCommand;
     }
 
-
-    public function getPreparationTime() {
-        return $this->preparationTime;
+    public function getDatetimeBegin() {
+        return $this->datetimeBegin;
     }
 
-    public function setPreparationTime($preparationTime) {
-        $this->preparationTime = $preparationTime;
+    public function setDatetimeBegin($datetimeBegin) {
+        $this->datetimeBegin = $datetimeBegin;
+    }
+
+    public function getDatetimeEnd() {
+        return $this->datetimeEnd;
+    }
+
+    public function setDatetimeEnd($datetimeEnd) {
+        $this->datetimeEnd = $datetimeEnd;
     }
 
 

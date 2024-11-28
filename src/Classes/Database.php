@@ -8,7 +8,7 @@ class Database {
     public static function getConnection() {
         if (self::$pdo === null) {
             // Charger la configuration
-            $config = require __DIR__ . '/../../config/config.php';
+            require __DIR__ . '/../../config/config.php';
 
             try {
                 // Connexion PDO
