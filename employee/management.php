@@ -159,6 +159,9 @@ try {
                 <p>Aucune commande trouvée.</p>
             <?php endif; ?>
         </div>
+        <div class="stats-image" style="margin-top: 20px; text-align: center;">
+            <img src="../assets/images/stats.png" alt="Statistiques" style="max-width: 100%; height: auto;">
+        </div>
     </div>
 </div>
 
