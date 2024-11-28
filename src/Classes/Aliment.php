@@ -8,13 +8,15 @@ class Aliment {
     private $pricePerUnitHT;
     private $pricePerKiloHT;
     private $tva;
+    private $supplier;
 
-    public function __construct($id, $name, $pricePerUnitHT, $pricePerKiloHT, $tva) {
+    public function __construct($id, $name, $pricePerUnitHT, $pricePerKiloHT, $tva, $supplier) {
         $this->id = $id;
         $this->name = $name;
         $this->pricePerUnitHT = $pricePerUnitHT;
         $this->pricePerKiloHT = $pricePerKiloHT;
         $this->tva = $tva;
+        $this->supplier = $supplier;
     }
 
     public function getId() {
@@ -55,5 +57,13 @@ class Aliment {
 
     public function setTva($tva) {
         $this->tva = $tva;
+    }
+
+    public function getSupplier() { 
+        return $this->supplier;
+    }
+
+    public function setSupplier($supplier) { 
+        $this->supplier = $supplier;
     }
 }
