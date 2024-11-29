@@ -26,6 +26,7 @@ class ItemFactory {
         if ($type) {
             $query .= " WHERE type = :type";
         }
+        $query .= " ORDER BY sort_order ASC";
         $stmt = $pdo->prepare($query);
         
         // Exécuter la requête
@@ -42,10 +43,27 @@ class ItemFactory {
                 $mealData['format'],
                 $mealData['price_ht'],
                 $mealData['tva'],
-                $mealData['sortOrder']
+                $mealData['sort_order'] 
             );
         }
 
         return $meals;
+    }
+
+    public static function updateSortOrder(array $data) {
+        $pdo = Database::getConnection();
+
+        $stmt = $pdo->prepare("UPDATE meals SET sort_order = :sortOrder WHERE id = :id");
+
+        foreach ($data as $item) {
+            if (isset($item['id'], $item['sortOrder'])) {
+                $stmt->execute([
+                    ':sortOrder' => $item['sortOrder'],
+                    ':id' => $item['id']
+                ]);
+            }
+        }
+
+        return ['success' => true, 'message' => 'Ordre mis à jour avec succès.'];
     }
 }

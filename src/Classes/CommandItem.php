@@ -1,5 +1,5 @@
 <?php
-//ajouter  tableaux choix types[plat, ou menu]??
+
 namespace App\Classes;
 
 class CommandItem {

@@ -17,11 +17,11 @@ class Meal extends AbstractItem {
     private $sortOrder;
     private $aliments = [];
 
-    public function __construct($id, $type, $name, $format, $sortOrder, $priceHT, $tva) {
+    public function __construct($id, $type, $name, $format,  $priceHT, $tva, $sortOrder=99) {
         parent::__construct($id, $name, $priceHT, $tva);
         $this->type = $type;
         $this->format = $format;
-        $this->sortOrder = $sortOrder;
+        $this->sortOrder = $sortOrder ?? 99;
     }
 
     public function getType() {
@@ -57,11 +57,28 @@ class Meal extends AbstractItem {
         return $this->sortOrder;
     }
 
-    public function setortOrder($sortOrder) {
+    public function setSortOrder($sortOrder) {
         $this->sortOrder = $sortOrder;
     }
 
+    public function getAliments() {
+        if (empty($this->aliments)) {
+            $pdo = Database::getConnection();
     
+            $query = "
+                SELECT a.name
+                FROM aliments a
+                INNER JOIN meal_aliment ma ON a.id = ma.aliment_id
+                WHERE ma.meal_id = :meal_id
+            ";
+    
+            $stmt = $pdo->prepare($query);
+            $stmt->execute(['meal_id' => $this->getId()]);
+            $this->aliments = $stmt->fetchAll(\PDO::FETCH_COLUMN);
+        }
+    
+        return $this->aliments;
+    }
 }
 
 
