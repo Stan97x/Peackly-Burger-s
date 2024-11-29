@@ -66,4 +66,77 @@ class ItemFactory {
 
         return ['success' => true, 'message' => 'Ordre mis à jour avec succès.'];
     }
+
+    // Récupère un menu 
+    public static function menus() {
+        $pdo = Database::getConnection();
+
+        // Préparer la requête pour récupérer un menu spécifique
+        $query = "
+            SELECT id, name, child_menu, type, format, price_ht, tva, sort_order
+            FROM menus
+           
+        ";
+
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
+
+        // Récupérer les données du menu
+        $menuData = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        // Si aucun menu n'est trouvé, retourner null
+        if (!$menuData) {
+            return null;
+        }
+
+        // Transformer les données en objet Menu
+        $menus = [];
+    foreach ($menuData as $data) {
+        $menus[] = self::createMenu(
+            $menuData['id'],
+                $menuData['type'], 
+                $menuData['name'],
+                $menuData['format'],
+                $menuData['price_ht'],
+                $menuData['tva'],
+                0
+        );
+    }
+    return $menus;
+    }
+    public static function getMealById($id) {
+     
+        $pdo = \App\Classes\Database::getConnection();
+    
+ 
+        $query = "
+            SELECT id, type, name, format, price_ht, tva
+            FROM meals
+            WHERE id = :id
+        ";
+    
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
+    
+  
+        $stmt->execute();
+    
+        
+        $mealData = $stmt->fetch(\PDO::FETCH_ASSOC);
+    
+        if (!$mealData) {
+            return null;
+        }
+    
+    
+        return self::createMeal(
+            $mealData['id'],
+            $mealData['type'],
+            $mealData['name'],
+            $mealData['format'],
+            $mealData['price_ht'],
+            $mealData['tva'],
+            0 
+        );
+    }
 }
