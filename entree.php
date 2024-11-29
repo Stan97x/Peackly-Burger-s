@@ -5,8 +5,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 use App\Classes\Factories\ItemFactory;
 
 try {
-    // Récupérer tous les meals de type 'burger'
-    $meals = ItemFactory::getMeals('burger');
+    // Récupérer tous les meals de type 
+    $meals = ItemFactory::getMeals('entree');
 } catch (Exception $e) {
     // Gérer l'erreur
     $meals = [];
@@ -18,7 +18,7 @@ try {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Peackly Burger's - Nos Plats</title>
+    <title>Peackly Burger's - Nos Desserts</title>
     <link rel="stylesheet" href="assets/css/formule.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -48,26 +48,25 @@ try {
 
 <!-----------Special Formule---------->
 <section class="products">
-    <h1 class="title">Nos Plats</h1>
+    <h1 class="title">Nos Entrées</h1>
     <div class="box-containeur">
         <?php if (!empty($meals)) : ?>
             <?php foreach ($meals as $meal) : ?>
-                <?php 
-                // Calcul du prix TTC
-                $price_ttc = $meal->getPriceHT() + ($meal->getPriceHT() * $meal->getTva() / 100); 
-                ?>
-                <form class="box">
-                    <button type="button" class="fas fa-eye" name="quick_view"></button>
-                    <button type="button" class="fas fa-shopping-cart" name="add"></button>
-                    <img src="assets/images/formule.webp" alt="<?= htmlspecialchars($meal->getName()) ?>">
+                <?php $price_ttc = $meal->getPriceHT() + ($meal->getPriceHT() * $meal->getTva() / 100); ?>
+                <form action="action.php" method="post" class="box">
+                    <button type="submit" class="fas fa-eye" name="quick_view"></button>
+                    <button type="submit" class="fas fa-shopping-cart" name="add"></button>
+                    <img src="assets/images/dessert.jpg" alt="<?= htmlspecialchars($meal->getName()) ?>">
                     <a href="#" class="category"><?= htmlspecialchars($meal->getName()) ?></a>
                     <div class="cat"><?= htmlspecialchars($meal->getFormat()) ?></div>
                     <div class="name"><?= htmlspecialchars($meal->getName()) ?></div>
                     <div class="flex">
                         <div class="price"><?= number_format($price_ttc, 2) ?><span>€</span></div>
                         <input type="number" name="qt" class="qt" min="1" max="99" value="1">
+                        <button type="submit" class="fas fa-edit"></button>
                         <button type="button" class="btns ajouter-btn" onclick="addToCommande(<?= $meal->getId() ?>)">Ajouter</button>
                     </div>
+                    <input type="hidden" name="meal_id" value="<?= $meal->getId() ?>">
                 </form>
             <?php endforeach; ?>
         <?php else : ?>
@@ -97,5 +96,4 @@ try {
     xhr.send('id=' + mealId);
 }
 </script>
-
 </html>

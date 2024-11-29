@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Peackly Burger's - Nos Formules</title>
-    <link rel="stylesheet" href="assets/css/formule.css">
+    <link rel="stylesheet" href="/assets/css/formule.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -14,12 +14,12 @@
     <div class="sidebar">
         <img class="logo" src='assets/images/PeacklyBurger.png'>
         <ul>
-            <li><a href="#"><i class="fas fa-home"></i>Accueil</a></li>
-            <li><a href="#"><i class="fas fa-user"></i>Entrée</a></li>
-            <li><a href="#"><i class="fa fa-cutlery"></i>Formule</a></li>
-            <li><a href="plat.php"><i class="fas fa-blog"></i>Plat</a></li>
-            <li><a href="Boisson.php"><i class="fa fa-glass"></i>Boisson</a></li>
-            <li><a href="dessert.php"><i class="fas fa-cake"></i>Dessert</a></li>
+        <li><a href="accueil.html"><i class="fas fa-home"></i>Accueil</a></li>
+                <li><a href="formule.php"><i class="fa fa-cutlery"></i>Formule</a></li>
+                <li><a href="entree.php"><i class="fas fa-user"></i>Entrée</a></li>
+                <li><a href="plat.php"><i class="fas fa-blog"></i>Plat</a></li>
+                <li><a href="Boisson.php"><i class="fa fa-glass"></i>Boisson</a></li>
+                <li><a href="dessert.php"><i class="fas fa-cake"></i>Dessert</a></li>
         </ul>
         <ul class="Commande">
             <li><a href="commande.php"><i class="fas fa-shopping-cart"></i>Commande</a></li>
