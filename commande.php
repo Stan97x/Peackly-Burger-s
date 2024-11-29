@@ -99,10 +99,10 @@ if (!empty($_SESSION['commande'])) {
     <div class="sidebar">
         <img class="logo" src='assets/images/PeacklyBurger.png'>
         <ul>
-        <li><a href="#"><i class="fas fa-home"></i>Accueil</a></li>
-                <li><a href="#"><i class="fas fa-user"></i>Entrée</a></li>
-                <li><a href="#"><i class="fa fa-cutlery"></i>Formule</a></li>
-                <li><a href="plat.php"><i class="fas fa-blog"></i>Plat</a></li>
+        <li><a href="accueil.html"><i class="fas fa-home"></i>Accueil</a></li>
+                <li><a href="formule.php"><i class="fa fa-cutlery"></i>Formule</a></li>
+                <li><a href="entree.php"><i class="fas fa-user"></i>Entrée</a></li>
+                <li><a href="plat.php"><i class="fas fa-blog"></i>Burgers</a></li>
                 <li><a href="Boisson.php"><i class="fa fa-glass"></i>Boisson</a></li>
                 <li><a href="dessert.php"><i class="fas fa-cake"></i>Dessert</a></li>
         </ul>

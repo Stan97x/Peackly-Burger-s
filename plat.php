@@ -56,9 +56,8 @@ try {
                 // Calcul du prix TTC
                 $price_ttc = $meal->getPriceHT() + ($meal->getPriceHT() * $meal->getTva() / 100); 
                 ?>
-                <form class="box">
-                    <button type="button" class="fas fa-eye" name="quick_view"></button>
-                    <button type="button" class="fas fa-shopping-cart" name="add"></button>
+                <div class="box" onclick="confirmAddToCommande(<?= $meal->getId() ?>, '<?= htmlspecialchars($meal->getName()) ?>')">
+        
                     <img src="assets/images/formule.webp" alt="<?= htmlspecialchars($meal->getName()) ?>">
                     <a href="#" class="category"><?= htmlspecialchars($meal->getName()) ?></a>
                     <div class="cat"><?= htmlspecialchars($meal->getFormat()) ?></div>
@@ -66,10 +65,9 @@ try {
                     <div class="flex">
                         <div class="price"><?= number_format($price_ttc, 2) ?><span>€</span></div>
                         <p><?= htmlspecialchars(implode(', ', $meal->getAliments())) ?></p>
-                        <input type="number" name="qt" class="qt" min="1" max="99" value="1">
-                        <button type="button" class="btns ajouter-btn" onclick="addToCommande(<?= $meal->getId() ?>)">Ajouter</button>
+                        
                     </div>
-                </form>
+            </div>
             <?php endforeach; ?>
         <?php else : ?>
             <p>Aucun plat disponible pour le moment.</p>
@@ -78,6 +76,29 @@ try {
 </section>
 </body>
 <script>
+ function confirmAddToCommande(mealId, mealName) {
+        const confirmation = confirm(`Voulez-vous ajouter ${mealName} à la commande ?`);
+        if (confirmation) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'commande.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    if (xhr.responseText === 'success') {
+                        alert(`${mealName} ajouté à la commande avec succès.`);
+                    } else {
+                        alert('Erreur lors de l\'ajout du plat à la commande.');
+                    }
+                } else {
+                    alert('Erreur lors de la communication avec le serveur.');
+                }
+            };
+
+            xhr.send('id=' + mealId);
+        }
+    }
+
     function addToCommande(mealId) {
     const xhr = new XMLHttpRequest();
     xhr.open('POST', 'commande.php', true);
