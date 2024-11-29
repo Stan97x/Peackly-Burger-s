@@ -32,7 +32,7 @@ h6 {
 }
 a
 {
-    color:  #c4b80f   
+    color:  #c4b80f;   
 }
 /*--------------------------------------------------------------
 NavBar
@@ -155,33 +155,46 @@ header
     {
         display: block;
     }
+}
 /*--------------------------------------------------------------
 Banner
 --------------------------------------------------------------*/
-}
-.video-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70%;
-    overflow: hidden;
-    z-index: -1;
+/* Carrousel */
+.carousel-item img {
+    height: 60vh; /* Pleine hauteur de l'écran */
+    object-fit: cover;
 }
 
-.video-background video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.carousel {
+    position: relative;
+}
+
+.button-container {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #C4B80F;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #FFD700;
 }
 @media (max-width: 768px) {
     .links {
         display: none;
     }
-    .video-background
-    {
-        width: 120%;
-    }
+   
     .burger-menu {
         display: block;
     }
@@ -226,32 +239,27 @@ Banner
 /*--------------------------------------------------------------
 # Acuueil Borne
 --------------------------------------------------------------*/
-.menu-cat {
-    padding: 2rem 0;
-}
-.menu-cat .box-containeur {
-    margin-top: 600px;
+.menu-cat .box-containeur
+{
+    margin-top: 100px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    gap: 0.5rem; 
+    grid-template-columns:repeat(auto-fit,minmax(26rem,1fr));
+    gap: 0.2rem;
     align-items: flex-start;
-    justify-items: center; 
 }
-
-.menu-cat .box-containeur .box {
-    border: 0.2rem solid black;
-    padding: 0.5rem; 
+.menu-cat .box-containeur .box
+{
+    border:0.2rem solid black;
+    padding: 0rem;
     text-align: center;
     color: #c4b80f;
-    max-width: 95%; 
 }
-
 
 .menu-cat .box-containeur .box img
 {
     width: 100%;
-    height: 12rem;
-    object-fit:cover;
+    height: 15rem;
+    object-fit: contain;
 
 }
 .menu-cat .box-containeur .box h3
