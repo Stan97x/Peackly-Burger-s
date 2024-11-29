@@ -65,6 +65,7 @@ try {
                     <div class="name"><?= htmlspecialchars($meal->getName()) ?></div>
                     <div class="flex">
                         <div class="price"><?= number_format($price_ttc, 2) ?><span>€</span></div>
+                        <p><?= htmlspecialchars(implode(', ', $meal->getAliments())) ?></p>
                         <input type="number" name="qt" class="qt" min="1" max="99" value="1">
                         <button type="button" class="btns ajouter-btn" onclick="addToCommande(<?= $meal->getId() ?>)">Ajouter</button>
                     </div>
