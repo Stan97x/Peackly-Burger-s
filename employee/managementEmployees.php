@@ -103,6 +103,9 @@ try {
                 <p>Aucun utilisateur trouvé.</p>
             <?php endif; ?>
         </div>
+        <div class="stats-image" style="margin-top: 20px; text-align: center;">
+            <img src="../assets/images/time.png" alt="temps" style="max-width: 100%; height: auto;">
+        </div>
     </div>
 </div>
 
