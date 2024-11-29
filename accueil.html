@@ -1,3 +1,4 @@
+
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,42 +28,63 @@
          
     </header>
 <!-- ======= Header End ======= -->
- <!-----------Banner---------->
-<div class="video-background">
-    <video autoplay muted loop>
-        <source src="assets/images/Burger Speed's.mp4" type="video/mp4">
-    </video>
+ <!-----------Banner Start---------->
+<div id="photoCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <!-- Première image -->
+        <div class="carousel-item active">
+            <img src="assets/images/carou1.jpg" class="d-block w-100" alt="Photo 1">
+        </div>
+        <!-- Deuxième image -->
+        <div class="carousel-item">
+            <img src="assets/images/carou2.jpg" class="d-block w-100" alt="Photo 2">
+        </div>
+        <!-- Troisième image -->
+        <div class="carousel-item">
+            <img src="assets/images/carou3.jpg" class="d-block w-100" alt="Photo 3">
+        </div>
+    </div>
+    <!-- Contrôles précédent/suivant -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>   
+    <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    <!-- Bouton CTA -->
     <div class="button-container">
         <a href="#menu" class="cta-button">Découvrir</a>
     </div>
 </div>
-<!-----------Banner End----------->
+<!-----------Banner End---------->
 <!-----------Special Menu---------->
 <section class="menu-cat">
     <div class="box-containeur">
         <a href="#" class="box">
             <img src="assets/images/formule.webp" alt="">
-            <h3>Formule</h3>
+            <h3>Accueim</h3>
         </a>
-        <a href="#" class="box">
+        <a href="formule.php" class="box">
             <img src="assets/images/formule.webp" alt="">
             <h3>Formule</h3>
         </a>
-        <a href="#" class="box">
+        <a href="plat.php" class="box">
             <img src="assets/images/formule.webp" alt="">
-            <h3>Formule</h3>
+            <h3>Plat</h3>
         </a>
-        <a href="#" class="box">
+        <a href="Boisson.php" class="box">
             <img src="assets/images/formule.webp" alt="">
-            <h3>Formule</h3>
+            <h3>Boisson</h3>
         </a>
-        <a href="#" class="box">
+        <a href="dessert.php" class="box">
             <img src="assets/images/formule.webp" alt="">
-            <h3>Formule</h3>
+            <h3>Dessert</h3>
         </a>
         <a href="#"  class="box">
             <img src="assets/images/formule.webp" alt="">
-            <h3>Formule</h3>
+            <h3>En ce moment</h3>
         </a>
     </div>
 </section>
@@ -83,5 +105,3 @@
         }
 
     </script>
-</body>
-</html>
